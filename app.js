@@ -8,11 +8,15 @@ const addItemButton = document.querySelector("button.addItemButton");
 const removeItemButton = document.querySelector("button.removeItemButton");
 const listItems = document.getElementsByTagName("li");
 
-listDiv.addEventListener("mouseover", () => {
-    listItems[i].textContent = listItems[i].textContent.toUpperCase();
+listDiv.addEventListener("mouseover", (event) => {
+    if (event.target.tagName === "LI") {
+        event.target.textContent = event.target.textContent.toUpperCase();
+    }
 });
-listDiv.addEventListener("mouseout", () => {
-    listItems[i].textContent = listItems[i].textContent.toLowerCase();
+listDiv.addEventListener("mouseout", (event) => {
+    if (event.target.tagName === "LI") {
+        event.target.textContent = event.target.textContent.toLowerCase();
+    }
 });
 
 toggleList.addEventListener("click", () => {
