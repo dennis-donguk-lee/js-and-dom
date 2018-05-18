@@ -11,7 +11,20 @@ listUl.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON" /* && event.target.parentNode.tagName === "LI" */) {
         let li = event.target.parentNode;
         let ul = li.parentNode;
-        ul.removeChild(li);
+        let prevLi = li.previousElementSibling;
+        let nextLi = li.nextElementSibling;
+
+        if (event.target.className === "remove") {
+            ul.removeChild(li);
+        }
+
+        else if (event.target.className === "up" && prevLi) {
+            ul.insertBefore(li, prevLi);
+        }
+
+        else if (event.target.className === "down" && nextLi) {
+            ul.insertBefore(nextLi, li);
+        }
     }
 });
 
